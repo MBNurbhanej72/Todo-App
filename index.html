@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital@0;1&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1b1b1d;
+            font-family: "Jost", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+
+
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1b1b1d;
+        }
+
+
+        h1 {
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inputValue {
+            width: 200px;
+            height: 20px;
+            border-radius: 15px;
+            border: none;
+            padding: 5px;
+        }
+
+        .main-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            margin-left: 15px;
+        }
+
+        button {
+            color: black;
+            background-color: #f5ee62;
+            border: 2px solid #f5ee62;
+            border-radius: 15px;
+            height: 30px;
+            width: 80px;
+        }
+
+
+        p {
+            width: 100%;
+            cursor: pointer;
+            list-style-type: circle;
+            text-transform: capitalize;
+            text-align: start;
+            max-width: 270px;
+            word-wrap: break-word;
+            font-weight: 500;
+            color: white;
+
+            &:hover {
+                color: #f5ee62;
+            }
+        }
+
+
+        .date-time {
+            color: white;
+            text-align: end;
+            font-size: 10px;
+
+            &:hover {
+                color:
+                    #f5ee62;
+            }
+        }
+
+        .main_todo_div {
+            margin-top: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .todo-list-elem {
+            margin-top: 35px;
+            margin-left: 10px;
+            flex-wrap: wrap;
+        }
+
+        .deleteBtn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="display: flex; justify-content: center; align-items: center;  margin-top: 50px;">Todo List App</h1>
+    <br>
+    <form>
+        <div class="main-div">
+            <input type="text" id="inputValue" autocomplete="off">
+            <button id="btn">Add Todo</button>
+        </div>
+        <section class="todo-list-elem"></section>
+    </form>
+    <script src="script.js">
+    </script>
+</body>
+
+</body>
+
+</html>
