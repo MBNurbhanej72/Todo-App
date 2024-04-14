@@ -20,27 +20,18 @@ let addTodoDynamicElement = (curElem, dateTimeString) => {
   let divElement = document.createElement("div");
   divElement.classList.add("main_todo_div");
 
-  // Convert curElem to string before capitalizing first character
-  let todoText = curElem.toString();
-
-  // Format the date time string to include both date and time in 12-hour format
   let currentDate = new Date(dateTimeString);
-  let hours = currentDate.getHours();
-  let minutes = currentDate.getMinutes();
-  let seconds = currentDate.getSeconds();
-  let secondsFormat = seconds <= 9 ? "0" : "";
-  let meridiem = hours >= 12 ? " PM" : " AM";
-  hours = hours % 12 || 12; // Convert midnight (0) to 12
+  let formattedDateTime = currentDate.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+  });
 
-  let month = currentDate.toLocaleString("default", { month: "long" });
-  let day = currentDate.getDate();
-  let year = currentDate.getFullYear();
-
-  let formattedDateTime = `${day} ${month} ${year}, ${hours}:${minutes}:${secondsFormat}${seconds}${meridiem}`;
-
-  divElement.innerHTML = `<p>• ${
-    todoText.charAt(0).toUpperCase() + todoText.slice(1)
-  }</p><p class="date-time">${formattedDateTime}</p><button class="deleteBtn">Delete</button>`;
+  divElement.innerHTML = `<p> ${curElem}</p><p class="date-time">${formattedDateTime}</p><button class="deleteBtn">Delete</button>`;
 
   mainTodo.append(divElement);
 };
@@ -54,7 +45,7 @@ let addTodoList = (e) => {
     !localTodoList.some((item) => item.text === todoListValue)
   ) {
     let currentDate = new Date();
-    let dateTimeString = currentDate.toLocaleString();
+    let dateTimeString = currentDate.toISOString(); // Save datetime in ISO format
 
     localTodoList.push({ text: todoListValue, dateTime: dateTimeString });
     localStorage.setItem("todoData", JSON.stringify(localTodoList));
